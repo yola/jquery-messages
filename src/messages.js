@@ -18,7 +18,7 @@
             }
         };
 
-    $.fn.displayMessage = function(options){
+    $.fn.message = function(options){
         return this.each(function() {
             $.data(this, 'plugin_' + pluginName,
             new Messages(this, options));
