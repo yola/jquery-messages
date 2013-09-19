@@ -3,7 +3,7 @@
   "title": "Messages",
   "description": "Easily display messages, alerts, warnings, and errors.",
   "version": "0.1.0",
-  "homepage": "https://github.com/kahnjw/jquery.messages",
+  "homepage": "https://github.com/yola/jquery-messages",
   "author": {
     "name": "kahnjw",
     "email": "jarrod@yola.com",
@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kahnjw/jquery.messages.git"
+    "url": "git://github.com/yola/jquery-messages.git"
   },
-  "bugs": "https://github.com/kahnjw/jquery.messages/issues",
+  "bugs": "https://github.com/yola/jquery-messages/issues",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/kahnjw/jquery.messages/blob/master/LICENSE-MIT"
+      "url": "https://github.com/yola/jquery-messages/blob/master/LICENSE-MIT"
     }
   ],
   "dependencies": {
