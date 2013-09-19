@@ -31,7 +31,7 @@
   test('inserts message', function() {
     expect(1);
 
-    $('#qunit').displayMessage({message: this.message_text});
+    $('#qunit').message({message: this.message_text});
     var message_contents = $('.alert').html();
 
     equal(this.message_text,  message_contents, 'They\'re not equal!');
@@ -42,7 +42,7 @@
 
     $('#qunit').attr('data-message', this.message_text);
 
-    $('#qunit').displayMessage({
+    $('#qunit').message({
       message_attribute: 'message',
     });
 
@@ -56,7 +56,7 @@
 
     $('body').attr('data-message-fallback', this.message_text);
 
-    $('#qunit').displayMessage({
+    $('#qunit').message({
       message_attribute: 'message',
       fallback_message_attribute: 'message-fallback'
     });
@@ -71,7 +71,7 @@
     var expected = 'qunit';
     var attach_id = '#' + expected;
 
-    $('body').displayMessage({
+    $('body').message({
       message: this.message_text,
       attach_to: attach_id
     });
