@@ -23,7 +23,7 @@ In your web page:
 Using the plugin is as easy as using jQuery:
 
 ```javascript
-$("#my_element").displayMessage({message: "Hai"});
+$("#my_element").message({message: "Hai"});
 ```
 
 This will append a new message `Hai` to the top of `#my_element`. It will also remove all pre-existing Message that exist within `#my_element`.
@@ -31,7 +31,7 @@ This will append a new message `Hai` to the top of `#my_element`. It will also r
 A more advanced usage:
 
 ```javascript
-$("#my_element").displayMessage({
+$("#my_element").message({
     message_attribute: "user-error",
     message: "It looks like there is a typo.",
     message_type: "error",
@@ -50,7 +50,7 @@ The `message` option is used to specify the message text to display to the user.
 Example usage:
 
 ```javascript
-$("#my_element").displayMessage({message: "It looks like there is a typo."});
+$("#my_element").message({message: "It looks like there is a typo."});
 ```
 
 ### Message Attribute
@@ -65,7 +65,7 @@ Example usage:
 ```
 
 ```javascript
-$("#my_element").displayMessage({message_attribute: 'syntax-error'});
+$("#my_element").message({message_attribute: 'syntax-error'});
 ```
 
 ### Attach To
@@ -74,7 +74,7 @@ The `attach_to` option is used to specify an element within the originally selec
 Example Usage:
 
 ```javascript
-$("#my_element").displayMessage({
+$("#my_element").message({
     message: "Please enter a valid email",
     attach_to: "#email_input"
 });
@@ -109,7 +109,7 @@ If you don't like how Bootstrap styles alerts you may do either of the following
 You may also want to override the class names by sending in your own classes at the time of the call, like this:
 
 ```javascript
-$('#my_element').displayMessage({
+$('#my_element').message({
     message: 'It looks like there is a typo.',
     message_type: 'error',
     alert_classes: {
@@ -123,7 +123,7 @@ $('#my_element').displayMessage({
 Or even make your own alert type:
 
 ```javascript
-$('#my_element').displayMessage({
+$('#my_element').message({
     message: 'It looks like there is a typo.',
     message_type: 'foobar',
     alert_classes: {
@@ -145,7 +145,7 @@ window.my_alert_classes = {
 ```
 
 ```javascript
-$('#my_element').displayMessage({
+$('#my_element').message({
     message: 'It looks like there is a typo.',
     message_type: 'success',
     alert_classes: window.my_alert_classes,
@@ -162,5 +162,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 0.1 - First development release.
 
 ## License
-Copyright (c) 2013 kahnjw  
+Copyright (c) 2013 kahnjw
 Licensed under the MIT license.
