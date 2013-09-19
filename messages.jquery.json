@@ -1,0 +1,27 @@
+{
+  "name": "messages",
+  "title": "Messages",
+  "description": "Easily display messages, alerts, warnings, and errors.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/kahnjw/jquery.messages",
+  "author": {
+    "name": "kahnjw",
+    "email": "jarrod@yola.com",
+    "url": "http://fortydev.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kahnjw/jquery.messages.git"
+  },
+  "bugs": "https://github.com/kahnjw/jquery.messages/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/kahnjw/jquery.messages/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.7"
+  },
+  "keywords": []
+}

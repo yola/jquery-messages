@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Example One</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+            h1 {
+                text-align: center;
+                margin-bottom: 25px;
+            }
+            .alert, body {
+                margin-top: 15px;
+            }
+            .container {
+                width: 18%;
+                float: left;
+            }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="../src/messages.js"></script>
+        <script>
+            $(document).ready(function() {
+                var j_clean = false;
+                $('.form-1').submit(function() {
+                    $('.container-1').displayMessage({
+                        message: 'Success is very successful!',
+                        message_type: 'success',
+                        attach_to: 'input',
+                        clean: j_clean
+                    });
+                    return false;
+                });
+
+                $('.form-2').submit(function() {
+                    $('.container-2').displayMessage({
+                        message: 'This information is informational!',
+                        message_type: 'info',
+                        attach_to: 'input',
+                        clean: j_clean
+                    });
+                    return false;
+                });
+
+                $('.form-3').submit(function() {
+                    $('.container-3').displayMessage({
+                        message: 'This error is red. Like a firetruck.',
+                        message_type: 'error',
+                        attach_to: 'input',
+                        clean: j_clean
+                    });
+                    return false;
+                });
+
+                $('.remove').submit(function() {
+                    $('.alert').remove();
+                    return false;
+                });
+
+                $('.clean').submit(function() {
+                    j_clean = !j_clean;
+                    $('.container-5').displayMessage({
+                        message: 'Clean is: ' + j_clean,
+                        message_type: 'info',
+                        attach_to: 'input'
+                    });
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Messages Example 1</h1>
+        <div class="container-1 container">
+            <form class="form-1">
+                <span>Insert success</span>
+                <input type="submit" value="Insert">
+            </form>
+        </div>
+
+        <div class="container-2 container">
+            <form class="form-2">
+                <span>Insert information</span>
+                <input type="submit" value="Insert">
+            </form>
+        </div>
+
+        <div class="container-3 container">
+            <form class="form-3">
+                <span>Insert error</span>
+                <input type="submit" value="Insert">
+            </form>
+        </div>
+        <div class="container-4 container">
+            <form class="remove">
+                <input type="submit" value="Clear All">
+            </form>
+        </div>
+        <div class="container-5 container">
+            <form class="clean">
+                <input type="submit" value="Toggle Clean">
+            </form>
+        </div>
+    </body>
+</html>
