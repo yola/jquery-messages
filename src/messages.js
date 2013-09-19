@@ -25,6 +25,21 @@
         });
     };
 
+    $.message = {};
+
+    $.message.close = function(selector) {
+        $(selector).remove();
+    };
+
+    $.message.closeAll = function(classes) {
+        if(classes !== undefined){
+            defaults.alert_classes = classes;
+        }
+        $.each(defaults.alert_classes, function(key, value){
+            $('.' + value).remove();
+        });
+    }
+
     function Messages(element, options){
         this.element = element;
         this.options = $.extend({}, defaults, options);
