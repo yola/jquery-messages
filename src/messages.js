@@ -38,7 +38,7 @@
         $.each(defaults.alert_classes, function(key, value){
             $('.' + value).remove();
         });
-    }
+    };
 
     function Messages(element, options){
         this.element = element;
