@@ -7,6 +7,7 @@
  */
 
 ;(function($){
+    'use strict';
     var pluginName = 'Messages',
         defaults = {
             alert_classes: {
