@@ -20,9 +20,10 @@
       throws(block, [expected], [message])
   */
 
-  module('jQuery.message', {
+  module('jQuery.messages.test1', {
     // This will run before each test in this module.
     setup: function() {
+      $('.alert').remove();
       this.message_text = 'test message';
     }
   });
@@ -76,7 +77,6 @@
     });
 
     var attached_to = $('.alert').prev().attr('id');
-
     equal(attached_to, expected, 'They\'re not equal!');
   });
 
