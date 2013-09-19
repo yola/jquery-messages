@@ -1,4 +1,4 @@
-# Messages jQuery Plugin
+# jQuery Messages Plugin
 
 Easily display messages, alerts, warnings, and errors.
 
