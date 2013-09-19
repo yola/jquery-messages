@@ -19,24 +19,24 @@
     </head>
     <body>
         <h1>Messages Example 1</h1>
-        <div class="container-1 container">
+        <div class="success-container container">
             <span>Insert success</span>
             <input type="submit" value="Insert">
         </div>
 
-        <div class="container-2 container">
+        <div class="information-container container">
             <span>Insert information</span>
             <input type="submit" value="Insert">
         </div>
 
-        <div class="container-3 container">
+        <div class="error-container container">
             <span>Insert error</span>
             <input type="submit" value="Insert">
         </div>
-        <div class="container-4 container">
+        <div class="close-container container">
             <input type="submit" value="Clear All">
         </div>
-        <div class="container-5 container">
+        <div class="toggleclean-container container">
             <input type="submit" value="Toggle Clean">
         </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -44,8 +44,8 @@
         <script>
             (function($) {
                 var j_clean = false;
-                $('.container-1 input').click(function() {
-                    $('.container-1').message({
+                $('.success-container input').click(function() {
+                    $('.success-container').message({
                         message: 'Success is very successful!',
                         message_type: 'success',
                         attach_to: 'input',
@@ -54,8 +54,8 @@
                     return false;
                 });
 
-                $('.container-2 input').click(function() {
-                    $('.container-2').message({
+                $('.information-container input').click(function() {
+                    $('.information-container').message({
                         message: 'This information is informational!',
                         message_type: 'info',
                         attach_to: 'input',
@@ -64,8 +64,8 @@
                     return false;
                 });
 
-                $('.container-3 input').click(function() {
-                    $('.container-3').message({
+                $('.error-container input').click(function() {
+                    $('.error-container').message({
                         message: 'This error is red. Like a firetruck.',
                         message_type: 'error',
                         attach_to: 'input',
@@ -74,14 +74,14 @@
                     return false;
                 });
 
-                $('.container-4 input').click(function() {
+                $('.close-container input').click(function() {
                     $.message.closeAll();
                     return false;
                 });
 
-                $('.container-5 input').click(function() {
+                $('.toggleclean-container input').click(function() {
                     j_clean = !j_clean;
-                    $('.container-5').message({
+                    $('.toggleclean-container').message({
                         message: 'Clean is: ' + j_clean,
                         message_type: 'info',
                         attach_to: 'input'
