@@ -65,7 +65,7 @@
                 });
 
                 $('.form-2').submit(function() {
-                    $('.container-2').displayMessage({
+                    $('.container-2').message({
                         message: 'This information is informational!',
                         message_type: 'info',
                         attach_to: 'input',
@@ -75,7 +75,7 @@
                 });
 
                 $('.form-3').submit(function() {
-                    $('.container-3').displayMessage({
+                    $('.container-3').message({
                         message: 'This error is red. Like a firetruck.',
                         message_type: 'error',
                         attach_to: 'input',
@@ -91,7 +91,7 @@
 
                 $('.clean').submit(function() {
                     j_clean = !j_clean;
-                    $('.container-5').displayMessage({
+                    $('.container-5').message({
                         message: 'Clean is: ' + j_clean,
                         message_type: 'info',
                         attach_to: 'input'
