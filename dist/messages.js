@@ -2,6 +2,7 @@
 * https://github.com/yola/jquery-messages
 * Copyright (c) 2013 kahnjw; Licensed MIT */
 ;(function($){
+    'use strict';
     var pluginName = 'Messages',
         defaults = {
             alert_classes: {
