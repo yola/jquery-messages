@@ -23,7 +23,7 @@
             $.data(this, 'plugin_' + pluginName,
             new Messages(this, options));
         });
-    }
+    };
 
     function Messages(element, options){
         this.element = element;
@@ -41,7 +41,7 @@
     Messages.prototype.buildMessage = function(){
         var element_attribute = $(this.element).data(this.options.message_attribute);
         var body_attribute = $(document.body).data(this.options.message_attribute);
-        var fallback_attribute = $(document.body).data(this.options.fallback_message_attribute)
+        var fallback_attribute = $(document.body).data(this.options.fallback_message_attribute);
 
         if (this.options.message_attribute && element_attribute) {
             this.message_details = element_attribute;
@@ -63,34 +63,36 @@
             this.message_details = { message: this.message_details };
         }
 
-        return this.message_details.message !== undefined
-    }
+        return this.message_details.message !== undefined;
+    };
 
     Messages.prototype.cleanMessages = function(){
-        if (this.options.clean === true || this.options.clean === false)
+        var clean = null;
+        if (this.options.clean === true || this.options.clean === false) {
             clean = this.options.clean;
-        else clean = true;
+        }
+        else { clean = true; }
 
         if (clean) {
-            var this_element = this.element
+            var this_element = this.element;
             $.each(this.options.alert_classes, function(key, value) {
                 $(this_element).find('.' + value).slideUp(200, function() {
                     $(this).remove();
                 });
             });
         }
-    }
+    };
 
     Messages.prototype.findStyleClass = function(){
         var this_options = this.options;
         var message_class = '';
 
         $.each(this.options.alert_classes, function(key, value) {
-            if (this_options.message_type == key) message_class = value;
+            if (this_options.message_type === key) { message_class = value; }
         });
 
         return message_class;
-    }
+    };
 
     Messages.prototype.insertMessage = function(){
         var message_class = this.findStyleClass();
@@ -103,11 +105,10 @@
             message.html(this.message_details);
         }
 
-        // This should probably be removed. Having form stuff in messages doesn't
-        // make much sense
+        var element = null;
         if(this.message_details.field_name){
             var element_selector = '[name="' + this.message_details.field_name + '"]';
-            var element = $(this.element).find(element_selector);
+            element = $(this.element).find(element_selector);
             message.attr('class', 'fieldError alert ' + message_class).hide();
             element.parent().append(message);
             message.slideDown(200);
@@ -115,7 +116,7 @@
         }
 
         if (this.options.attach_to) {
-            var element = $(this.element).find(this.options.attach_to);
+            element = $(this.element).find(this.options.attach_to);
             message.attr('class', 'fieldError alert ' + message_class).hide();
             element.after(message);
             message.slideDown(200);
@@ -124,5 +125,5 @@
 
         $(this.element).prepend(message.hide());
         message.slideDown(200);
-    }
+    };
 })(jQuery);
