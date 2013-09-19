@@ -53,6 +53,11 @@
         }
         else { this.clean = true; }
 
+        if (this.options.slideIn === true || this.options.slideIn === false) {
+            this.slideIn = this.options.slideIn;
+        }
+        else { this.slideIn = false; }
+
         if(this.buildMessage()) {
             this.cleanMessages();
             this.insertMessage();
@@ -126,7 +131,10 @@
             element = $(this.element).find(element_selector);
             message.attr('class', 'fieldError alert ' + message_class).hide();
             element.parent().append(message);
-            message.slideDown(200);
+
+            if(this.slideIn) { message.slideDown(200); }
+            else { message.show(); }
+
             return;
         }
 
@@ -134,11 +142,16 @@
             element = $(this.element).find(this.options.attach_to);
             message.attr('class', 'fieldError alert ' + message_class).hide();
             element.after(message);
-            message.slideDown(200);
+
+            if(this.slideIn) { message.slideDown(200); }
+            else { message.show(); }
+
             return;
         }
 
         $(this.element).prepend(message.hide());
-        message.slideDown(200);
+
+        if(this.slideIn) { message.slideDown(200); }
+        else { message.show(); }
     };
 })(jQuery);
