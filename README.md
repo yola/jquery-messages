@@ -9,8 +9,8 @@ Easily display messages, alerts, warnings, and errors.
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/kahnjw/jquery.messages/master/dist/messages.min.js
-[max]: https://raw.github.com/kahnjw/jquery.messages/master/dist/messages.js
+[min]: https://raw.github.com/yola/jquery-messages/master/dist/messages.min.js
+[max]: https://raw.github.com/yola/jquery-messages/master/dist/messages.js
 
 In your web page:
 
