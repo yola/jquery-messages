@@ -1,6 +1,6 @@
 /*
  * messages
- * https://github.com/kahnjw/jquery.messages
+ * https://github.com/yola/jquery-messages
  *
  * Copyright (c) 2013 kahnjw
  * Licensed under the MIT license.
