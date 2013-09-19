@@ -1,5 +1,5 @@
 /*! Messages - v0.1.0 - 2013-09-19
-* https://github.com/kahnjw/jquery.messages
+* https://github.com/yola/jquery-messages
 * Copyright (c) 2013 kahnjw; Licensed MIT */
 ;(function($){
     var pluginName = 'Messages',
