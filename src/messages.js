@@ -47,6 +47,11 @@
         this._defaults = defaults;
         this._name = pluginName;
 
+        if (this.options.clean === true || this.options.clean === false) {
+            this.clean = this.options.clean;
+        }
+        else { this.clean = true; }
+
         if(this.buildMessage()) {
             this.cleanMessages();
             this.insertMessage();
@@ -82,13 +87,7 @@
     };
 
     Messages.prototype.cleanMessages = function(){
-        var clean = null;
-        if (this.options.clean === true || this.options.clean === false) {
-            clean = this.options.clean;
-        }
-        else { clean = true; }
-
-        if (clean) {
+        if (this.clean) {
             var this_element = this.element;
             $.each(this.options.alert_classes, function(key, value) {
                 $(this_element).find('.' + value).slideUp(200, function() {
