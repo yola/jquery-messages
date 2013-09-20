@@ -1,11 +1,3 @@
-/*
- * messages
- * https://github.com/yola/jquery-messages
- *
- * Copyright (c) 2013 kahnjw
- * Licensed under the MIT license.
- */
-
 ;(function($){
     'use strict';
     var pluginName = 'Messages',
@@ -96,9 +88,11 @@
         if (this.clean) {
             var this_element = this.element;
             $.each(this.options.alert_classes, function(key, value) {
-                $(this_element).find('.' + value).slideUp(200, function() {
-                    $(this).remove();
-                });
+                if(this.slideIn) {
+                    $(this_element).find('.' + value).slideUp(200, function() {
+                        $(this).remove();
+                    });
+                } else { $(this_element).find('.' + value).remove(); }
             });
         }
     };

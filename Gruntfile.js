@@ -17,7 +17,6 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        banner: '<%= banner %>',
         stripBanners: true
       },
       dist: {
@@ -26,9 +25,6 @@ module.exports = function(grunt) {
       },
     },
     uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
       dist: {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.js'
