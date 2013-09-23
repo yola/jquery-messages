@@ -23,7 +23,7 @@
   module('jQuery.messages.test1', {
     // This will run before each test in this module.
     setup: function() {
-      $('.alert').remove();
+      $.message.closeAll();
       this.message_text = 'test message';
     }
   });
