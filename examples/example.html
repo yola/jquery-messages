@@ -47,7 +47,7 @@
                 $('.success-container input').click(function() {
                     $('.success-container').message({
                         message: 'Success is very successful!',
-                        message_type: 'success',
+                        classes: 'alert-success',
                         attach_to: 'input',
                         clean: j_clean
                     });
@@ -57,7 +57,7 @@
                 $('.information-container input').click(function() {
                     $('.information-container').message({
                         message: 'This information is informational!',
-                        message_type: 'info',
+                        classes: 'alert-info',
                         attach_to: 'input',
                         clean: j_clean
                     });
@@ -67,7 +67,7 @@
                 $('.error-container input').click(function() {
                     $('.error-container').message({
                         message: 'This error is red. Like a firetruck.',
-                        message_type: 'error',
+                        classes: 'alert-error alert-danger',
                         attach_to: 'input',
                         clean: j_clean
                     });

@@ -2,13 +2,7 @@
     'use strict';
     var pluginName = 'Messages',
         defaults = {
-            alert_classes: {
-                'info': 'alert-info',
-                'loading': 'alert-info loading',
-                'error': 'alert-error alert-danger',
-                'success': 'alert-success',
-                'alert': 'alert'
-            }
+            default_classes: 'alert'
         };
 
     $.fn.message = function(options){
@@ -25,17 +19,28 @@
     };
 
     $.message.closeAll = function(classes) {
+        var remove_classes;
         if(classes !== undefined){
-            defaults.alert_classes = classes;
+            remove_classes = classes.split(' ');
+        } else {
+            remove_classes = defaults.default_classes.split(' ');
         }
-        $.each(defaults.alert_classes, function(key, value){
+        $.each(remove_classes, function(key, value){
             $('.' + value).remove();
         });
     };
 
     function Messages(element, options){
         this.element = element;
-        this.options = $.extend({}, defaults, options);
+        this.options = options;
+        var default_classes = defaults.default_classes.split(' ');
+
+        if(this.options.hasOwnProperty('classes')) {
+            this.options.classes = this.options.classes.split(' ');
+            this.options.classes = this.options.classes.concat(default_classes);
+        } else {
+            this.options.classes = default_classes;
+        }
 
         this._defaults = defaults;
         this._name = pluginName;
@@ -87,7 +92,7 @@
     Messages.prototype.cleanMessages = function(){
         if (this.clean) {
             var this_element = this.element;
-            $.each(this.options.alert_classes, function(key, value) {
+            $.each(this.options.classes, function(key, value) {
                 if(this.slideIn) {
                     $(this_element).find('.' + value).slideUp(200, function() {
                         $(this).remove();
@@ -97,19 +102,12 @@
         }
     };
 
-    Messages.prototype.findStyleClass = function(){
-        var this_options = this.options;
-        var message_class = '';
-
-        $.each(this.options.alert_classes, function(key, value) {
-            if (this_options.message_type === key) { message_class = value; }
-        });
-
-        return message_class;
+    Messages.prototype.printableClasses = function() {
+        return this.options.classes.join(' ');
     };
 
     Messages.prototype.insertMessage = function(){
-        var message_class = this.findStyleClass();
+        var message_class = this.printableClasses();
 
         var message = $('<div>').attr('class', 'alert ' + message_class);
         if (this.message_details.hasOwnProperty('message')) {
@@ -134,7 +132,7 @@
 
         if (this.options.attach_to) {
             element = $(this.element).find(this.options.attach_to);
-            message.attr('class', 'fieldError alert ' + message_class).hide();
+            message.attr('class', 'fieldError ' + message_class).hide();
             element.after(message);
 
             if(this.slideIn) { message.slideDown(200); }
