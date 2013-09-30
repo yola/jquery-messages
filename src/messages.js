@@ -1,36 +1,30 @@
 ;(function($){
     'use strict';
-    var pluginName = 'Messages',
+    var pluginName = 'Message',
         defaults = {
             default_classes: 'alert'
         };
 
-    $.fn.message = function(options){
-        return this.each(function() {
-            $.data(this, 'plugin_' + pluginName,
-            new Messages(this, options));
+    $.fn.message = function(option) {
+        return this.each(function () {
+            var $this = $(this);
+            var messages = $this.data('jq.messages');
+            var options = typeof option === 'object' && option;
+
+            if (!messages) { messages = []; }
+            if (options) {
+                messages.push(new Message($this, options));
+                $this.data('jq.messages', messages);
+            }
+            if (typeof option === 'string') {
+                $.each(messages, function(key, val){
+                    val[option]();
+                });
+            }
         });
     };
 
-    $.message = {};
-
-    $.message.close = function(selector) {
-        $(selector).remove();
-    };
-
-    $.message.closeAll = function(classes) {
-        var remove_classes;
-        if(classes !== undefined){
-            remove_classes = classes.split(' ');
-        } else {
-            remove_classes = defaults.default_classes.split(' ');
-        }
-        $.each(remove_classes, function(key, value){
-            $('.' + value).remove();
-        });
-    };
-
-    function Messages(element, options){
+    function Message(element, options) {
         this.element = element;
         this.options = options;
         var default_classes = defaults.default_classes.split(' ');
@@ -56,12 +50,18 @@
         else { this.slideIn = false; }
 
         if(this.buildMessage()) {
-            this.cleanMessages();
+            this.cleanMessage();
             this.insertMessage();
         }
+
+        return this;
     }
 
-    Messages.prototype.buildMessage = function(){
+    Message.prototype.close = function() {
+        $(this._message_).remove();
+    };
+
+    Message.prototype.buildMessage = function(){
         var element_attribute = $(this.element).data(this.options.message_attribute);
         var body_attribute = $(document.body).data(this.options.message_attribute);
         var fallback_attribute = $(document.body).data(this.options.fallback_message_attribute);
@@ -89,7 +89,7 @@
         return this.message_details.message !== undefined;
     };
 
-    Messages.prototype.cleanMessages = function(){
+    Message.prototype.cleanMessage = function(){
         if (this.clean) {
             var this_element = this.element;
             $.each(this.options.classes, function(key, value) {
@@ -102,11 +102,11 @@
         }
     };
 
-    Messages.prototype.printableClasses = function() {
+    Message.prototype.printableClasses = function() {
         return this.options.classes.join(' ');
     };
 
-    Messages.prototype.insertMessage = function(){
+    Message.prototype.insertMessage = function(){
         var message_class = this.printableClasses();
 
         var message = $('<div>').attr('class', 'alert ' + message_class);
@@ -116,6 +116,8 @@
         else {
             message.html(this.message_details);
         }
+
+        this._message_ = message;
 
         var element = null;
         if(this.message_details.field_name){

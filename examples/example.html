@@ -75,7 +75,9 @@
                 });
 
                 $('.close-container input').click(function() {
-                    $.message.closeAll();
+                    $('.error-container').message('close');
+                    $('.information-container').message('close');
+                    $('.success-container').message('close');
                     return false;
                 });
 
