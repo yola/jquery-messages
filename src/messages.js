@@ -1,4 +1,4 @@
-;(function($){
+;(function($, window, document, undefined){
     'use strict';
     var pluginName = 'Message',
         defaults = {
@@ -148,4 +148,4 @@
         if(this.slideIn) { message.slideDown(200); }
         else { message.show(); }
     };
-})(jQuery);
+})(jQuery, window, document);
