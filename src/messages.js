@@ -31,7 +31,8 @@
 
         if(this.options.hasOwnProperty('classes')) {
             this.options.classes = this.options.classes.split(' ');
-            this.options.classes = this.options.classes.concat(default_classes);
+            this.options.classes = this.options.classes.concat(
+                default_classes);
         } else {
             this.options.classes = default_classes;
         }
@@ -62,9 +63,12 @@
     };
 
     Message.prototype.buildMessage = function(){
-        var element_attribute = $(this.element).data(this.options.message_attribute);
-        var body_attribute = $(document.body).data(this.options.message_attribute);
-        var fallback_attribute = $(document.body).data(this.options.fallback_message_attribute);
+        var element_attribute = $(this.element).data(
+            this.options.message_attribute);
+        var body_attribute = $(document.body).data(
+            this.options.message_attribute);
+        var fallback_attribute = $(document.body).data(
+            this.options.fallback_message_attribute);
 
         if (this.options.message_attribute && element_attribute) {
             this.message_details = element_attribute;
