@@ -75,7 +75,8 @@
         else if (this.options.message_attribute && body_attribute) {
             this.message_details = body_attribute;
         }
-        else if (this.options.fallback_message_attribute && fallback_attribute) {
+        else if (this.options.fallback_message_attribute &&
+            fallback_attribute) {
             this.message_details = fallback_attribute;
         }
         else {
@@ -97,7 +98,9 @@
                     $(this_element).find('.' + value).slideUp(200, function() {
                         $(this).remove();
                     });
-                } else { $(this_element).find('.' + value).remove(); }
+                } else {
+                    $(this_element).find('.' + value).remove();
+                }
             });
         }
     };
@@ -112,8 +115,7 @@
         var message = $('<div>').attr('class', 'alert ' + message_class);
         if (this.message_details.hasOwnProperty('message')) {
             message.html(this.message_details.message);
-        }
-        else {
+        } else {
             message.html(this.message_details);
         }
 
@@ -121,7 +123,8 @@
 
         var element = null;
         if(this.message_details.field_name){
-            var element_selector = '[name="' + this.message_details.field_name + '"]';
+            var element_selector = ('[name="' +
+                this.message_details.field_name + '"]');
             element = $(this.element).find(element_selector);
             message.attr('class', 'fieldError alert ' + message_class).hide();
             element.parent().append(message);
