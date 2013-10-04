@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Example One</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+            h1 {
+                text-align: center;
+                margin-bottom: 25px;
+            }
+            .alert, body {
+                margin-top: 15px;
+            }
+            .container {
+                width: 18%;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Messages Example 1</h1>
+        <div class="success-container container">
+            <span>Insert success</span>
+            <input type="submit" value="Insert">
+        </div>
+
+        <div class="information-container container">
+            <span>Insert information</span>
+            <input type="submit" value="Insert">
+        </div>
+
+        <div class="error-container container">
+            <span>Insert error</span>
+            <input type="submit" value="Insert">
+        </div>
+        <div class="close-container container">
+            <input type="submit" value="Clear All">
+        </div>
+        <div class="toggleclean-container container">
+            <input type="submit" value="Toggle Clean">
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="../src/messages.js"></script>
+        <script>
+            (function($) {
+                var j_clean = false;
+                $('.success-container input').click(function() {
+                    $('.success-container').message({
+                        message: 'Success is very successful!',
+                        classes: 'alert-success',
+                        attach_to: 'input',
+                        clean: j_clean
+                    });
+                    return false;
+                });
+
+                $('.information-container input').click(function() {
+                    $('.information-container').message({
+                        message: 'This information is informational!',
+                        classes: 'alert-info',
+                        attach_to: 'input',
+                        clean: j_clean
+                    });
+                    return false;
+                });
+
+                $('.error-container input').click(function() {
+                    $('.error-container').message({
+                        message: 'This error is red. Like a firetruck.',
+                        classes: 'alert-error alert-danger',
+                        attach_to: 'input',
+                        clean: j_clean
+                    });
+                    return false;
+                });
+
+                $('.close-container input').click(function() {
+                    $('.error-container').message('close');
+                    $('.information-container').message('close');
+                    $('.success-container').message('close');
+                    return false;
+                });
+
+                $('.toggleclean-container input').click(function() {
+                    j_clean = !j_clean;
+                    $('.toggleclean-container').message({
+                        message: 'Clean is: ' + j_clean,
+                        message_type: 'info',
+                        attach_to: 'input'
+                    });
+                    return false;
+                });
+            })(jQuery);
+        </script>
+    </body>
+</html>
