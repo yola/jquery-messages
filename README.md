@@ -34,7 +34,7 @@ A more advanced usage:
 $("#my_element").message({
     message_attribute: "user-error",
     message: "It looks like there is a typo.",
-    message_type: "error",
+    classes: "alert-error alert-danger",
     attach_to: ".internal_element",
     clean: false
 });
@@ -83,74 +83,16 @@ $("#my_element").message({
 ### Clean
 The `clean` option is used to tell Messages to clean all previous messages or leave them in place. The `clean` option can be set to `true` and `false`.
 
-### Message Type
-The `message_type` option is used to set the class of the message displayed to the user. The values that may be set by default are as follows:
+### Classes
+The `classes` option is used to specify what CSS class or classes should be
+applied to the message element.
 
-* All messages get the `alert` class.
-* `message_type: 'error'` gets the `alert-error` class
-* `message_type: 'success'` gets the `alert-success` class
-* `message_type: 'info'` gets the `alert-info` class
-* `message_type: 'loading'` gets the `alert-info loading` classes
-
-These are Twitter Bootsrap alert classes. You may override these features in a few different ways. See the "Overriding Default CSS Classes" section below.
-
-### Alert Classes
-
-See section below, titled "Overriding Default CSS Classes" for documentation on the `alert_classes` option.
-
-## Overriding Default CSS Classes
-Out of the box Messages comes with some basic classes with which to style your messages. You may find these class names in the Options > Message Type section above.
-
-If you don't like how Bootstrap styles alerts you may do either of the following:
-
-* Don't use Twitter Bootstrap and implement these CSS classes yourself
-* Override the styles that Bootstrap gives these alerts
-
-You may also want to override the class names by sending in your own classes at the time of the call, like this:
+Example Usage:
 
 ```javascript
-$('#my_element').message({
-    message: 'It looks like there is a typo.',
-    message_type: 'error',
-    alert_classes: {
-        'error': 'different_error_class'
-    }
-    attach_to: '.internal_element',
-    clean: false
-});
-```
-
-Or even make your own alert type:
-
-```javascript
-$('#my_element').message({
-    message: 'It looks like there is a typo.',
-    message_type: 'foobar',
-    alert_classes: {
-        'foobar': 'foobar_class'
-    }
-    attach_to: '.internal_element',
-    clean: false
-});
-```
-
-If you want to define your own set of alert classes, we recommend putting them in an object and sending them to Messages on every call:
-
-```javascript
-window.my_alert_classes = {
-    'warning': 'warning_class',
-    'error': 'error_class',
-    'success': 'success_class',
-}
-```
-
-```javascript
-$('#my_element').message({
-    message: 'It looks like there is a typo.',
-    message_type: 'success',
-    alert_classes: window.my_alert_classes,
-    attach_to: '.internal_element',
-    clean: false
+$("#my_element").message({
+    message: "Please enter a valid email",
+    classes: "alert-danger alert-error"
 });
 ```
 
@@ -162,5 +104,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 0.1 - First development release.
 
 ## License
-Copyright (c) 2013 kahnjw
+Copyright (c) 2013 Yola
 Licensed under the MIT license.
