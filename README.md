@@ -84,8 +84,8 @@ $("#my_element").message({
 The `clean` option is used to tell Messages to clean all previous messages or leave them in place. The `clean` option can be set to `true` and `false`.
 
 ### Classes
-The `classes` option is used to tel Messages what class or classes should be
-user to style the inserted message.
+The `classes` option is used to specify what CSS class or classes should be
+applied to the message element.
 
 Example Usage:
 
