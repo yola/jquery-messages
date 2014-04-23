@@ -1,5 +1,8 @@
 # jQuery Messages Plugin
 
+[![Build Status](https://travis-ci.org/yola/jquery-messages.png)](https://travis-ci.org/yola/jquery-messages)
+
+
 Easily display messages, alerts, warnings, and errors.
 
 ## Requirements
