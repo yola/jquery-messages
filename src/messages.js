@@ -67,7 +67,7 @@
             this.options.message_attribute);
         var body_attribute = $(document.body).data(
             this.options.message_attribute);
-        var fallback_attribute = $(document.body).data(
+        var fallback_attribute = $(this.element).data(
             this.options.fallback_message_attribute);
 
         if (this.options.message_attribute && element_attribute) {
